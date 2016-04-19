@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get '/employees/log_in' => "employees#log_in", as: :log_in
   get '/employees/profile' => "employees#profile", as: :profile
 
+  get '/drinks' => "items#drinks"
+  get '/meals' => "items#meals"
+  get '/desserts' => "items#desserts"
+
   post '/sessions' => "sessions#create", as: :new_session
   delete '/sessions' => "sessions#destroy", as: :delete_session
 
