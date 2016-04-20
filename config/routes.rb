@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :employees, only: [:new, :create]
-  resources :parties
+  resources :parties, only: [:current, :history, :new]
 
   get '/employees/log_in' => "employees#log_in", as: :log_in
   get '/employees/profile' => "employees#profile", as: :profile
@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get '/drinks' => "items#drinks"
   get '/meals' => "items#meals"
   get '/desserts' => "items#desserts"
+
+  get '/parties' => "parties#current"
+  post 'parties' => "parties#create"
+  get '/history' => "parties#history"
 
   post '/sessions' => "sessions#create", as: :new_session
   delete '/sessions' => "sessions#destroy", as: :delete_session
