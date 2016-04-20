@@ -1,0 +1,9 @@
+<%= button_to "New Party", new_party_path, {method: 'get'}  %>
+
+<% @parties.each do |party| %>
+
+  <p>Table of <%= party.table_number %></p>
+
+<% end %>
+
+<%= button_to "Back", profile_path, {method: 'get'} %>
