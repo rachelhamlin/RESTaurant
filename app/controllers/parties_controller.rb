@@ -10,13 +10,21 @@ class PartiesController < ApplicationController
 
   def create
     new_party = Party.create party_params.merge({employee_id: current_user.id})
-    redirect_to profile_path
+    redirect_to parties_path
   end
 
   def current
     @parties = Party.where(employee_id: current_user.id)
                     .where(:is_paid => false)
   end
+
+  def order
+    @drinks = Item.where(category: 'drinks')
+    @meals = Item.where(category: 'meals')
+    @desserts = Item.where(category: 'desserts')
+    @party = Party.find params[:id]
+  end
+
 
   def history
     @paidparties = Party.where(employee_id: current_user.id)
