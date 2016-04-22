@@ -3,7 +3,7 @@
   <% @meals.each do |meal| %>
     <%= label_tag meal[:name]  %>
     <%= hidden_field_tag "order[meals][][id]", meal[:id] %>
-    <%= number_field_tag "order[meals][][quantity]"  %>
+    <%= number_field_tag "order[meals][][quantity]", min: 0  %>
   <% end %>
 ​
   <%= submit_tag "Add" %>

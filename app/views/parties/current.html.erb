@@ -2,7 +2,7 @@
 
 <% @parties.each do |party| %>
 
-  <p><%= link_to "Table number #{party.table_number}", order_path(party), {method: 'get'} %></p>
+  <p><%= link_to "Table #{party.table_number}", order_path(party), {method: 'get'} %></p>
 
 <% end %>
 

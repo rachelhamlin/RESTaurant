@@ -9,12 +9,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order_params.select{|item| item[:quantity] > 0}
+    order_params.collect {|item| item[:quantity].to_i > 0}
 
     Order.create order_params
-
-    # order_params is a hash - [{drink}, {drink}, {drink}]
-    #select only the params where quantity is > 1
   end
 
   private

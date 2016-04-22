@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/parties' => "parties#current"
   get '/parties/:id' => "orders#new", as: :order
+  post '/parties/:id' => "orders#create"
   post '/parties' => "parties#create"
   get '/history' => "parties#history"
 
