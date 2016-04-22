@@ -9,8 +9,14 @@ class PartiesController < ApplicationController
   end
 
   def create
-    new_party = Party.create party_params.merge({employee_id: current_user.id})
-    redirect_to parties_path
+    table_number = params[:party][:table_number].to_i
+    if( Party.where(:table_number => table_number).length > 0)
+      @error = "Someone is already seated there!"
+      redirect_to new_party_path
+    else
+      new_party = Party.create party_params.merge({employee_id: current_user.id})
+      redirect_to parties_path
+    end
   end
 
   def current
@@ -18,16 +24,10 @@ class PartiesController < ApplicationController
                     .where(:is_paid => false)
   end
 
-  def order
-    @drinks = Item.where(category: 'drinks')
-    @meals = Item.where(category: 'meals')
-    @desserts = Item.where(category: 'desserts')
-    @party = Party.find params[:id]
-  end
-
-
   def history
-    @paidparties = Party.where(employee_id: current_user.id)
+    @paidparties = current_user.only_paid
+
+    Party.where(employee_id: current_user.id)
                         .where(:is_paid => true)
   end
 

@@ -1,11 +1,15 @@
 <%= form_for @party do |f| %>
 
   <%= f.label :table_number %>
-  <%= f.number_field :table_number %>
+  <%= f.number_field :table_number, min: 1 %>
   <br>
   <%= f.label :number_of_people %>
-  <%= f.number_field :number_of_people %>
+  <%= f.number_field :number_of_people, min: 1 %>
   <br>
   <%= f.submit "Add party" %>
 
+<% end %>
+
+<% if @error %>
+  <%= @error %>
 <% end %>

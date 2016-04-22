@@ -1,0 +1,11 @@
+<%= form_tag order_path, method: :post do %>
+​
+  <% @meals.each do |meal| %>
+    <%= label_tag drink[:name]  %>
+    <%= hidden_field_tag "order[meals][][id]", meal[:id] %>
+    <%= number_field_tag "order[meals][][quantity]"  %>
+  <% end %>
+​
+  <%= submit_tag "Add" %>
+​
+<% end %>

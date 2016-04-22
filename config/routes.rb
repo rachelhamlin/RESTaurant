@@ -11,13 +11,9 @@ Rails.application.routes.draw do
   get '/employees/log_in' => "employees#log_in", as: :log_in
   get '/employees/profile' => "employees#profile", as: :profile
 
-  # get '/drinks' => "items#drinks"
-  # get '/meals' => "items#meals"
-  # get '/desserts' => "items#desserts"
-
   get '/parties' => "parties#current"
-  get '/parties/:id/order' => "parties#order"
-  post 'parties' => "parties#create"
+  get '/parties/:id' => "orders#new", as: :order
+  post '/parties' => "parties#create"
   get '/history' => "parties#history"
 
   post '/sessions' => "sessions#create", as: :new_session

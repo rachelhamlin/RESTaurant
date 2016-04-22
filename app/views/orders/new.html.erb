@@ -1,0 +1,25 @@
+hello
+
+if party status = 1
+
+<%= form_for :order do |f| %>
+   <% @drinks.each do |field| %>
+       <%= f.label drink[:name] %>
+       <%= f.number_field drink[:name] %>
+   <% end %>
+   <%= f.submit %>
+<% end %>
+
+
+
+<%= form_tag order_path, method: :post do %>
+​
+  <% @drinks.each do |drink| %>
+    <%= label_tag drink[:name]  %>
+    <%= hidden_field_tag "order[drinks][][id]", drink[:id] %>
+    <%= number_field_tag "order[drinks][][quantity]"  %>
+  <% end %>
+​
+  <%= submit_tag "Add" %>
+​
+<% end %>
