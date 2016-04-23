@@ -1,0 +1,4 @@
+<%= form_tag party_path(@party), method: :put do -%>
+  <%= hidden_field_tag "party[status]", @party.status-1 -%>
+  <%= submit_tag 'Back to desserts' -%>
+<% end %>

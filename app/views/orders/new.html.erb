@@ -4,4 +4,6 @@
   <%= render 'meals' %>
 <% elsif @party.status == 3 %>
   <%= render 'desserts' %>
+<% elsif @party.status == 4 %>
+  <%= render 'check' %>
 <% end %>

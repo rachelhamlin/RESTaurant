@@ -8,6 +8,13 @@ class PartiesController < ApplicationController
     @party = Party.new
   end
 
+  def update
+    @party = Party.find params[:id]
+    @party.status = party_params[:status]
+    @party.save
+    redirect_to order_path
+  end
+
   def create
     table_number = params[:party][:table_number].to_i
     if( Party.where(:table_number => table_number).length > 0)
@@ -34,7 +41,7 @@ class PartiesController < ApplicationController
   private
 
   def party_params
-    params.require(:party).permit(:number_of_people, :table_number, :is_paid)
+    params.require(:party).permit(:number_of_people, :table_number, :is_paid, :status)
   end
 
 end
