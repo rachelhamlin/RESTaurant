@@ -2,3 +2,7 @@
   <%= hidden_field_tag "party[status]", @party.status-1 -%>
   <%= submit_tag 'Back to desserts' -%>
 <% end %>
+
+<% @items.each do |item| %>
+  <%= item %>
+<% end %>

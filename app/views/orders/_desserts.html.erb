@@ -3,6 +3,7 @@
   <% @desserts.each do |dessert| %>
     <%= label_tag dessert[:name]  %>
     <%= hidden_field_tag "order[desserts][][id]", dessert[:id] %>
+    <%= hidden_field_tag "party_id", @party.id %>
     <%= number_field_tag "order[desserts][][quantity]", min: 0  %>
   <% end %>
 ​
