@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
     @drinks = Item.where(category: 'drinks')
     @meals = Item.where(category: 'meals')
     @desserts = Item.where(category: 'desserts')
-    @items = Order.joins(:item)
+    # @items = Order.items.where(:party_id => :party_id)
   end
 
   def create
