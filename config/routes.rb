@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/admin/menu' => "items#index"
   get '/admin/employees'  => "employees#index"
   post '/items/new' => "items#new"
+  get '/items/:id' => "items#show"
   put '/items/:id' => "items#edit"
 
   get '/parties' => "parties#current"

@@ -15,14 +15,18 @@
   <div class='six columns offset-by-three'>
     <div class='menu'>
 
-      <p>Past Parties</p>
-        <li>
+      <h5>Past Parties</h5>
+        <ul>
           <% @paidparties.each do |party| %>
 
-          <ul>Table <%= party.table_number %>, party of <%= party.number_of_people %></ul>
+            <li>
+              Table <%= party.table_number %>, party of <%= party.number_of_people %> (<%= party.created_at.strftime("%d %b. %Y") %>)
+            </li>
 
           <% end %>
-        </li>
+        </ul>
+
+        <%= button_to "Back", profile_path, {method: 'get'} %>
 
   </div>
 </div>
