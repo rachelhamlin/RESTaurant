@@ -7,14 +7,24 @@
 
 <div class='content'>
 
-  <% if @party.status == 1 %>
-    <%= render 'drinks' %>
-  <% elsif @party.status == 2 %>
-    <%= render 'meals' %>
-  <% elsif @party.status == 3 %>
-    <%= render 'desserts' %>
-  <% elsif @party.status == 4 %>
-    <%= render 'check' %>
-  <% end %>
+  <div class='six columns offset-by-three'>
+    <div class='menu items-page'>
+
+      <% if @party.status == 1 %>
+        <h5>Add Drinks</h5>
+        <%= render 'drinks' %>
+      <% elsif @party.status == 2 %>
+        <h5>Add Meals</h5>
+        <%= render 'meals' %>
+      <% elsif @party.status == 3 %>
+        <h5>Add Desserts</h5>
+        <%= render 'desserts' %>
+      <% elsif @party.status == 4 %>
+        <h5>Receipt</h5>
+        <%= render 'check' %>
+      <% end %>
+
+    </div>
+  </div>
 
 </div>

@@ -10,22 +10,26 @@
   <div class='six columns offset-by-three'>
     <div class='menu'>
 
-    <%= form_for @party do |f| %>
+    <%= form_for @item do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <br>
 
-      <%= f.label :table_number %>
-      <%= f.number_field :table_number, min: 1 %>
+      <%= f.label :category %>
+      <%= f.select :category, ['drinks', 'meals', 'desserts'] %>
       <br>
-      <%= f.label :number_of_people %>
-      <%= f.number_field :number_of_people, min: 1 %>
+
+      <%= f.label :price %>
+      <%= f.number_field :price %>
       <br>
-      <%= f.submit "Add party" %>
+
+      <%= f.submit %>
 
     <% end %>
 
-    <% if @error %>
-      <%= @error %>
-    <% end %>
-
+    <%= button_to "Back", admin_path, {method: 'get'} %>
+    
+    </div>
   </div>
 
 </div>

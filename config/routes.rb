@@ -9,12 +9,11 @@ Rails.application.routes.draw do
   resources :parties, only: [:current, :history, :new]
   resources :items
 
-  post '/items/new' => "items#new"
-
   get '/employees/log_in' => "employees#log_in", as: :log_in
   get '/employees/profile' => "employees#profile", as: :profile
 
   get '/admin' => "items#index", as: :admin
+  post '/items/new' => "items#new"
   put '/items/:id' => "items#edit"
 
   get '/parties' => "parties#current"

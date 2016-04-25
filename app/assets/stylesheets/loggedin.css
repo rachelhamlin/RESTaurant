@@ -1,0 +1,86 @@
+.navbar {
+  position: fixed;
+  height: 4.5rem;
+  width: 100%;
+  background-color: rgba(0,0,0,.8);
+  margin-top: 0;
+  padding: 0;
+  clear: both;
+  color: white;
+}
+
+#restaurant {
+  float: left;
+  font-size: 3rem;
+  font-family: 'Kelly Slab';
+  width: 50%;
+  padding-bottom: 1rem;
+  padding-top: 0;
+  text-shadow: 2px 2px rgba(214,188,58,1);
+}
+
+#employee {
+  float: right;
+  width: 50%;
+  padding-top: 1.5rem;
+}
+
+.content {
+  margin-top: 3%;
+  position: relative;
+  text-align: center;
+}
+
+.menu {
+  position: absolute;
+  transform: translateY(50%);
+  border-radius: 5%;
+  width: 300px;
+  left: 500px;
+  margin: 0 auto;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: rgba(255,255,255,.9);
+}
+
+.items-page {
+  transform: translateY(0);
+}
+
+#new-party {
+  border-color: lightskyblue;
+  background-color: white;
+}
+
+#current-parties {
+  border-color: lightgreen;
+}
+
+.footer {
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0,0,0,.8);
+  height: 4.5rem;
+  padding: 0;
+  margin-bottom: 0;
+  bottom: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h5 {
+  margin-bottom: 0;
+}
+
+#close-tab {
+  border-color: red;
+  border-width: 2px;
+}

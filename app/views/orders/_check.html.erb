@@ -3,13 +3,14 @@
   <% @orderlist.each do |lineitem| %>
     <%= lineitem.item.name %> (<%= lineitem.quantity %> at $<%= lineitem.item.price %>)<br>
   <% end %>
-
+  <% @orderlist.each do |lineitem| %>
+    <% @n = 0 %>
+    <% lineitem.item.price * lineitem.quantity %>
+    <% @n += lineitem.item.price %>
+  <% end %>
+  Total: $<%= @n %>
+  <br>
 </div>
-
-<%= form_tag party_path(@party), method: :put do -%>
-  <%= hidden_field_tag "party[is_paid]", true -%>
-  <%= submit_tag 'Close Tab' -%>
-<% end %>
 
 <%= form_tag party_path(@party), method: :put do -%>
   <%= hidden_field_tag "party[status]", @party.status-1 -%>
@@ -24,4 +25,9 @@
 <%= form_tag party_path(@party), method: :put do -%>
   <%= hidden_field_tag "party[status]", @party.status-1 -%>
   <%= submit_tag 'Back to drinks' -%>
+<% end %>
+
+<%= form_tag party_path(@party), method: :put do -%>
+  <%= hidden_field_tag "party[is_paid]", true -%>
+  <%= submit_tag 'Close Out Tab', :id => 'close-tab' -%>
 <% end %>

@@ -27,7 +27,19 @@ form {
   padding: 0;
 }
 
-
 .tally {
   margin: 3%;
+}
+
+.splash-heading {
+  font-family: 'Kelly Slab';
+  color: white;
+  margin-top: 10%;
+  line-height: 1px;
+  text-shadow: 2px 2px rgba(214,188,58,1);
+}
+
+.splash-heading p {
+  font-size: 2.5rem;
+  margin-top: -15px;
 }

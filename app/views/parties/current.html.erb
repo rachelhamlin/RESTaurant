@@ -7,13 +7,17 @@
 
 <div class='content'>
 
-  <% @parties.each do |party| %>
+  <div class='six columns offset-by-three'>
+    <div class='menu'>
 
-    <p><%= link_to "Table #{party.table_number}", order_path(party), {method: 'get'} %></p>
+    <% @parties.each do |party| %>
 
-  <% end %>
+      <p><%= link_to "Table #{party.table_number}", order_path(party), {method: 'get'} %></p>
 
-  <%= button_to "New Party", new_party_path, {method: 'get'}  %>
-  <%= button_to "Back", profile_path, {method: 'get'} %>
+    <% end %>
 
+    <%= button_to "New Party", new_party_path, {method: 'get'}  %>
+    <%= button_to "Back", profile_path, {method: 'get'} %>
+
+  </div>
 </div>

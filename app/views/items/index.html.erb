@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag   'loggedin', media: 'all' %>
+
+<header class='navbar'>
+  <div id="restaurant">Taqueria</div>
+  <div id="employee"><%= @employee.name.capitalize %> | <%= @employee.restaurant_location.split(/ |\_/).map(&:capitalize).join(" ") %> | <%= link_to "Home", profile_path %></div>
+</header><br>
+
+<div class='content'>
+
+  <div class='six columns offset-by-three'>
+    <div class='menu items-page'>
+
+      <h5>Drinks</h5>
+        <% @drinks.each do |drink| %>
+          <%= link_to drink[:name], item_path(drink) %>, $<%= drink.price %><br>
+        <% end %><br>
+
+      <h5>Meals</h5>
+      <% @meals.each do |meal| %>
+        <%= link_to meal[:name], item_path(meal) %>, $<%= meal.price %><br>
+      <% end %><br>
+
+      <h5>Desserts</h5>
+      <% @desserts.each do |dessert| %>
+        <%= link_to dessert[:name], item_path(dessert) %>, $<%= dessert.price %><br>
+      <% end %><br>
+
+    <%= button_to "Add New Item", new_item_path %>
+  </div>
+
+</div>

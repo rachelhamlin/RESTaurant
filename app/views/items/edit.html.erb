@@ -10,22 +10,16 @@
   <div class='six columns offset-by-three'>
     <div class='menu'>
 
-    <%= form_for @party do |f| %>
+    <%= @item.name %><br>
 
-      <%= f.label :table_number %>
-      <%= f.number_field :table_number, min: 1 %>
+    <%= form_for @item do |f| %>
+      <%= f.label :price %>
+      <%= f.number_field :price %>
       <br>
-      <%= f.label :number_of_people %>
-      <%= f.number_field :number_of_people, min: 1 %>
-      <br>
-      <%= f.submit "Add party" %>
-
+      <%= f.submit "Save" %>
     <% end %>
 
-    <% if @error %>
-      <%= @error %>
-    <% end %>
+    <%= button_to "X", item_path, {method: 'delete'} %>
 
   </div>
-
 </div>

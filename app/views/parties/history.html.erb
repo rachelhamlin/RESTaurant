@@ -7,11 +7,15 @@
 
 <div class='content'>
 
+  <div class='six columns offset-by-three'>
+    <div class='menu'>
 
-  <% @paidparties.each do |party| %>
 
-    <p>Table <%= party.table_number %>, party of <%= party.number_of_people %></p>
+      <% @paidparties.each do |party| %>
 
-  <% end %>
+        <p>Table <%= party.table_number %>, party of <%= party.number_of_people %></p>
 
+      <% end %>
+
+  </div>
 </div>

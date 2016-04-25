@@ -7,25 +7,15 @@
 
 <div class='content'>
 
+
   <div class='six columns offset-by-three'>
     <div class='menu'>
+      <strong><%= @item.name %></strong><br>
+      $<%= @item.price %>
 
-    <%= form_for @party do |f| %>
-
-      <%= f.label :table_number %>
-      <%= f.number_field :table_number, min: 1 %>
-      <br>
-      <%= f.label :number_of_people %>
-      <%= f.number_field :number_of_people, min: 1 %>
-      <br>
-      <%= f.submit "Add party" %>
-
-    <% end %>
-
-    <% if @error %>
-      <%= @error %>
-    <% end %>
-
+      <%= button_to "Edit", edit_item_path, {method: 'get'} %>
+      <%= button_to "Back", admin_path, {method: 'get'} %>
+    </div>
   </div>
 
 </div>
