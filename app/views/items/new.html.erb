@@ -2,7 +2,12 @@
 
 <header class='navbar'>
   <div id="restaurant">Taqueria</div>
-  <div id="employee"><%= @employee.name.capitalize %> | <%= @employee.restaurant_location.split(/ |\_/).map(&:capitalize).join(" ") %> | <%= link_to "Home", profile_path %></div>
+  <div id="employee">
+    <%= @employee.name.capitalize %> |
+    <% if @employee.is_admin %><%= 'Manager' %><% else %><%= 'Server' %><% end %> at
+    <%= @employee.restaurant_location.split(/ |\_/).map(&:capitalize).join(" ") %> |
+    <%= link_to "Home", profile_path %>
+  </div>
 </header><br>
 
 <div class='content'>
@@ -28,7 +33,7 @@
     <% end %>
 
     <%= button_to "Back", admin_path, {method: 'get'} %>
-    
+
     </div>
   </div>
 
