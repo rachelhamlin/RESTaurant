@@ -11,10 +11,11 @@
 
   <div class='six columns offset-by-three'>
     <div class='menu'>
-    <%= button_to "New Party", new_party_path, {method: 'get', id: 'new-party', class:'all-buttons'}  %>
-    <%= button_to "Current Parties", parties_path, {method: 'get', id: 'current-parties', class:'all-buttons'} %>
-    <%= button_to "Past Parties", history_path, {method: 'get', class:'all-buttons'} %>
-    <%= button_to "Admin", admin_path, {method: 'get', class:'all-buttons'} %>
+      <% if @employee.is_admin %>
+        <%= render 'admin' %>
+      <% else %>
+        <%= render 'regular' %>
+      <% end %>
     </div>
   </div>
 

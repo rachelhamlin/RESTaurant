@@ -18,12 +18,19 @@ class EmployeesController < ApplicationController
 
   def profile
     @employee = current_user
+    # if @employee.is_admin?
+    #   puts "HELLO THIS IS AN ADMIN"
+    #   redirect_to 'employees/adminprofile'
+    # else
+    #   puts "NOPE NOT AN ADMIN"
+    #   redirect_to profile_path
+    # end
   end
 
   private
 
   def employee_params
-    params.require(:employee).permit(:name, :username, :email, :restaurant_location, :password, :password_confirmation)
+    params.require(:employee).permit(:name, :username, :email, :restaurant_location, :password, :password_confirmation, :is_admin)
   end
 
 
