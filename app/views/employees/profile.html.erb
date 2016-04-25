@@ -2,16 +2,22 @@
 
 <header class='navbar'>
   <div id="restaurant">Taqueria</div>
-  <div id="employee"><%= @employee.name %> | <%= @employee.restaurant_location %> | <%= link_to "Home", profile_path %></div>
+  <div id="employee"><%= @employee.name.capitalize %> | <%= @employee.restaurant_location.split(/ |\_/).map(&:capitalize).join(" ") %> | <%= link_to "Home", profile_path %></div>
 </header><br>
+
+
 
 <div class='content'>
 
-  <%= button_to "New Party", new_party_path, {method: 'get', id: 'new-party'}  %>
-  <%= button_to "Current Parties", parties_path, {method: 'get', id: 'current-parties'} %>
-  <%= button_to "Past Parties", history_path, {method: 'get'} %>
-  <%= button_to "Admin", admin_path, {method: 'get'} %>
+  <div class='six columns offset-by-three'>
+    <div class='menu'>
+    <%= button_to "New Party", new_party_path, {method: 'get', id: 'new-party', class:'all-buttons'}  %>
+    <%= button_to "Current Parties", parties_path, {method: 'get', id: 'current-parties', class:'all-buttons'} %>
+    <%= button_to "Past Parties", history_path, {method: 'get', class:'all-buttons'} %>
+    <%= button_to "Admin", admin_path, {method: 'get', class:'all-buttons'} %>
+    </div>
+  </div>
 
-  <%= button_to "Sign Out", delete_session_path, {id: 'signout'} %>
+<footer class='footer'><%= link_to "SIGN OUT", delete_session_path, {method: 'delete', id: 'signout', class:'all-buttons'} %></footer>
 
 </div>
