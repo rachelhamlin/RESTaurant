@@ -17,11 +17,13 @@ class OrdersController < ApplicationController
   end
 
   def total(orderlist)
-    *quantities = orderlist.map{ |x| x[:quantity] }
+    quantities = orderlist.map{ |x| x[:quantity] }
     item_ids = orderlist.map{ |x| x[:item_id] }
     index = Item.find(item_ids)
-    *prices = index.map{|item| item[:price]}
-    tally = (0...prices.count).inject(0) {|r, i| r + prices[i]*quantites[i]}
+    prices = index.map{|item| item[:price]}
+    q = Matrix.row_vector(quantities)
+    pr = Matrix.column_vector(prices)
+    tally = q * pr
     tally.sum
   end
 
