@@ -1,9 +1,27 @@
+<div class='tally'>
+
+  <% @orderlist.each do |lineitem| %>
+    <%= lineitem.item.name %> (<%= lineitem.quantity %> at $<%= lineitem.item.price %>)<br>
+  <% end %>
+
+</div>
+
+<%= form_tag party_path(@party), method: :put do -%>
+  <%= hidden_field_tag "party[is_paid]", true -%>
+  <%= submit_tag 'Close Tab' -%>
+<% end %>
+
 <%= form_tag party_path(@party), method: :put do -%>
   <%= hidden_field_tag "party[status]", @party.status-1 -%>
   <%= submit_tag 'Back to desserts' -%>
 <% end %>
 
+<%= form_tag party_path(@party), method: :put do -%>
+  <%= hidden_field_tag "party[status]", @party.status-1 -%>
+  <%= submit_tag 'Back to meals' -%>
+<% end %>
 
-<% @items.each do |item| %>
-  <%= item.name %>
+<%= form_tag party_path(@party), method: :put do -%>
+  <%= hidden_field_tag "party[status]", @party.status-1 -%>
+  <%= submit_tag 'Back to drinks' -%>
 <% end %>

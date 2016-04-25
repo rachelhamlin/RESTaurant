@@ -1,5 +1,17 @@
-<% @paidparties.each do |party| %>
+<%= stylesheet_link_tag   'loggedin', media: 'all' %>
 
-  <p>Table <%= party.table_number %></p>
+<header class='navbar'>
+  <span id="restaurant">Taqueria</span>
+  <span id="employee"><%= @employee.name %> | <%= @employee.restaurant_location %></span>
+</header><br>
 
-<% end %>
+<div class='content'>
+
+
+  <% @paidparties.each do |party| %>
+
+    <p>Table <%= party.table_number %>, party of <%= party.number_of_people %></p>
+
+  <% end %>
+
+</div>

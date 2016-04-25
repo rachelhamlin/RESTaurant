@@ -1,9 +1,19 @@
-<%= button_to "New Party", new_party_path, {method: 'get'}  %>
+<%= stylesheet_link_tag   'loggedin', media: 'all' %>
 
-<% @parties.each do |party| %>
+<header class='navbar'>
+  <span id="restaurant">Taqueria</span>
+  <span id="employee"><%= @employee.name %> | <%= @employee.restaurant_location %></span>
+</header><br>
 
-  <p><%= link_to "Table #{party.table_number}", order_path(party), {method: 'get'} %></p>
+<div class='content'>
 
-<% end %>
+  <% @parties.each do |party| %>
 
-<%= button_to "Back", profile_path, {method: 'get'} %>
+    <p><%= link_to "Table #{party.table_number}", order_path(party), {method: 'get'} %></p>
+
+  <% end %>
+
+  <%= button_to "New Party", new_party_path, {method: 'get'}  %>
+  <%= button_to "Back", profile_path, {method: 'get'} %>
+
+</div>

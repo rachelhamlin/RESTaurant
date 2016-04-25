@@ -1,7 +1,17 @@
-<%= @employee.name %>
+<%= stylesheet_link_tag   'loggedin', media: 'all' %>
 
-<%= button_to "Current Parties", parties_path, {method: 'get'} %>
-<%= button_to "History", history_path, {method: 'get'} %>
-<%= button_to "Menu", admin_path, {method: 'get'} %>
+<header class='navbar'>
+  <span id="restaurant">Taqueria</span>
+  <span id="employee"><%= @employee.name %> | <%= @employee.restaurant_location %></span>
+</header><br>
 
-<%= button_to "Sign Out", delete_session_path %>
+<div class='content'>
+
+  <%= button_to "New Party", new_party_path, {method: 'get'}  %>
+  <%= button_to "Current Parties", parties_path, {method: 'get'} %>
+  <%= button_to "History", history_path, {method: 'get'} %>
+  <%= button_to "Menu", admin_path, {method: 'get'} %>
+
+  <%= button_to "Sign Out", delete_session_path %>
+
+</div>

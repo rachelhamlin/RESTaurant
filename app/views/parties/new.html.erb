@@ -1,15 +1,26 @@
-<%= form_for @party do |f| %>
+<%= stylesheet_link_tag   'loggedin', media: 'all' %>
 
-  <%= f.label :table_number %>
-  <%= f.number_field :table_number, min: 1 %>
-  <br>
-  <%= f.label :number_of_people %>
-  <%= f.number_field :number_of_people, min: 1 %>
-  <br>
-  <%= f.submit "Add party" %>
+<header class='navbar'>
+  <span id="restaurant">Taqueria</span>
+  <span id="employee"><%= @employee.name %> | <%= @employee.restaurant_location %></span>
+</header><br>
 
-<% end %>
+<div class='content'>
 
-<% if @error %>
-  <%= @error %>
-<% end %>
+  <%= form_for @party do |f| %>
+
+    <%= f.label :table_number %>
+    <%= f.number_field :table_number, min: 1 %>
+    <br>
+    <%= f.label :number_of_people %>
+    <%= f.number_field :number_of_people, min: 1 %>
+    <br>
+    <%= f.submit "Add party" %>
+
+  <% end %>
+
+  <% if @error %>
+    <%= @error %>
+  <% end %>
+
+</div>

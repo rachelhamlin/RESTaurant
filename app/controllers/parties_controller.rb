@@ -5,17 +5,26 @@ class PartiesController < ApplicationController
   before_action :current_user
 
   def new
+    @employee = current_user
     @party = Party.new
   end
 
   def update
+    @employee = current_user
     @party = Party.find params[:id]
     @party.status = party_params[:status]
+    @party.is_paid = party_params[:is_paid]
     @party.save
-    redirect_to order_path
+
+    if @party.status
+      redirect_to order_path
+    elsif @party.is_paid
+      redirect_to parties_path
+    end
   end
 
   def create
+    @employee = current_user
     table_number = params[:party][:table_number].to_i
     if( Party.where(:table_number => table_number).length > 0)
       @error = "Someone is already seated there!"
@@ -27,14 +36,14 @@ class PartiesController < ApplicationController
   end
 
   def current
+    @employee = current_user
     @parties = Party.where(employee_id: current_user.id)
                     .where(:is_paid => false)
   end
 
   def history
-    @paidparties = current_user.only_paid
-
-    Party.where(employee_id: current_user.id)
+    @employee = current_user
+    @paidparties = Party.where(employee_id: current_user.id)
                         .where(:is_paid => true)
   end
 

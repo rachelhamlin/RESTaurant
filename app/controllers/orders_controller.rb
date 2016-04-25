@@ -1,12 +1,17 @@
 class OrdersController < ApplicationController
 
+  include SessionsHelper
+  before_action :authenticate!, only: [:profile]
+  before_action :current_user
+
   def new
+    @employee = current_user
     @order = Order.new
     @party = Party.find params[:id]
     @drinks = Item.where(category: 'drinks')
     @meals = Item.where(category: 'meals')
     @desserts = Item.where(category: 'desserts')
-    @items = Item.where(:party_id => @party.id)
+    @orderlist = Order.where(:party_id => @party.id)
   end
 
   def create

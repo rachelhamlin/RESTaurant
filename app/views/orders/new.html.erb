@@ -1,9 +1,20 @@
-<% if @party.status == 1 %>
-  <%= render 'drinks' %>
-<% elsif @party.status == 2 %>
-  <%= render 'meals' %>
-<% elsif @party.status == 3 %>
-  <%= render 'desserts' %>
-<% elsif @party.status == 4 %>
-  <%= render 'check' %>
-<% end %>
+<%= stylesheet_link_tag   'loggedin', media: 'all' %>
+
+<header class='navbar'>
+  <span id="restaurant">Taco King</span>
+  <span id="employee"><%= @employee.name %> | <%= @employee.restaurant_location %></span>
+</header><br>
+
+<div class='content'>
+
+  <% if @party.status == 1 %>
+    <%= render 'drinks' %>
+  <% elsif @party.status == 2 %>
+    <%= render 'meals' %>
+  <% elsif @party.status == 3 %>
+    <%= render 'desserts' %>
+  <% elsif @party.status == 4 %>
+    <%= render 'check' %>
+  <% end %>
+
+</div>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/employees/profile' => "employees#profile", as: :profile
 
   get '/admin' => "items#index", as: :admin
+  put '/items/:id' => "items#edit"
 
   get '/parties' => "parties#current"
   get '/parties/:id' => "orders#new", as: :order
