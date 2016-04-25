@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get '/employees/log_in' => "employees#log_in", as: :log_in
   get '/employees/profile' => "employees#profile", as: :profile
 
-  get '/admin' => "items#index", as: :admin
+  get '/admin/menu' => "items#index"
+  get '/admin/employees'  => "employees#index"
   post '/items/new' => "items#new"
   put '/items/:id' => "items#edit"
 
