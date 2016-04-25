@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag   'loggedin', media: 'all' %>
 
 <header class='navbar'>
-  <div id="restaurant">Taqueria</div>
+  <div id="restaurant"><%= link_to "Taqueria", profile_path %></div>
   <div id="employee">
     <%= @employee.name.capitalize %> |
     <% if @employee.is_admin %><%= 'Manager' %><% else %><%= 'Server' %><% end %> at
@@ -16,6 +16,7 @@
     <div class='menu'>
 
       <h5>Past Parties</h5>
+        <br>
         <ul>
           <% @paidparties.each do |party| %>
 
@@ -26,7 +27,10 @@
           <% end %>
         </ul>
 
+        <%= button_to "New Party", new_party_path, {method: 'get', class:'all-buttons'}  %>
         <%= button_to "Back", profile_path, {method: 'get'} %>
 
   </div>
 </div>
+
+<footer class='footer'><%= link_to "SIGN OUT", delete_session_path, {method: 'delete', id: 'signout', class:'all-buttons'} %></footer>

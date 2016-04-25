@@ -19,6 +19,11 @@
   text-shadow: 2px 2px rgba(214,188,58,1);
 }
 
+#restaurant a{
+  text-decoration: none;
+  color: white;
+}
+
 #employee {
   float: right;
   width: 50%;
@@ -33,7 +38,7 @@
 
 .menu {
   position: absolute;
-  transform: translateY(40%);
+  transform: translateY(30%);
   border-radius: 5%;
   width: 300px;
   left: 500px;
@@ -79,6 +84,10 @@ a:hover {
 
 h5 {
   margin-bottom: 0;
+}
+
+.tip {
+  font-size: 1.25rem;
 }
 
 #close-tab {

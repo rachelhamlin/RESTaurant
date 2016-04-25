@@ -14,6 +14,21 @@ class OrdersController < ApplicationController
     @desserts = Item.where(category: 'desserts')
     @orderlist = Order.where(:party_id => @party.id)
     @total = total(@orderlist)
+    @lowtip = lowtip(@total)
+    @medtip = medtip(@total)
+    @hightip = hightip(@total)
+  end
+
+  def lowtip(total)
+    (total.to_i * (0.15)).round(2)
+  end
+
+  def medtip(total)
+    (total.to_i * (0.18)).round(2)
+  end
+
+  def hightip(total)
+    (total.to_i * (0.20)).round(2)
   end
 
   def total(orderlist)

@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag   'loggedin', media: 'all' %>
 
 <header class='navbar'>
-  <div id="restaurant">Taqueria</div>
+  <div id="restaurant"><%= link_to "Taqueria", profile_path %></div>
   <div id="employee">
     <%= @employee.name.capitalize %> |
     <% if @employee.is_admin %><%= 'Manager' %><% else %><%= 'Server' %><% end %> at
@@ -38,3 +38,5 @@
   </div>
 
 </div>
+
+<footer class='footer'><%= link_to "SIGN OUT", delete_session_path, {method: 'delete', id: 'signout', class:'all-buttons'} %></footer>

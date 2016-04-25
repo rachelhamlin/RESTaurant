@@ -10,7 +10,6 @@ class PartiesController < ApplicationController
   end
 
   def update
-    @employee = current_user
     @party = Party.find params[:id]
     @party.status = party_params[:status]
     @party.is_paid = party_params[:is_paid]
@@ -24,7 +23,6 @@ class PartiesController < ApplicationController
   end
 
   def create
-    @employee = current_user
     table_number = params[:party][:table_number].to_i
     if( Party.where(:table_number => table_number).length > 0)
       @error = "Someone is already seated there!"

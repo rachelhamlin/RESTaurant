@@ -5,8 +5,12 @@
     <%= lineitem.item.name %> (<%= lineitem.quantity %> at $<%= lineitem.item.price %>)<br>
   <% end %>
   <strong>Total: $<%= @total %></strong>
-  <br>
-  <br>
+  <br><br>
+  <p class='tip'>
+    <strong><em>15%</em></strong>  $<%= @lowtip %><br>
+    <strong><em>18%</em></strong>  $<%= @medtip %><br>
+    <strong><em>20%</em></strong>  $<%= @hightip %>
+  </p>
 </div>
 
 <%= form_tag party_path(@party), method: :put do -%>
