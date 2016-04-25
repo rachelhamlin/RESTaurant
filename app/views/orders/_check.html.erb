@@ -4,7 +4,8 @@
     <% @array = Array.new %>
     <%= lineitem.item.name %> (<%= lineitem.quantity %> at $<%= lineitem.item.price %>)<br>
   <% end %>
-  <%= @total %>
+  <strong>Total: $<%= @total %></strong>
+  <br>
   <br>
 </div>
 

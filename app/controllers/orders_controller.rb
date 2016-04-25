@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   include SessionsHelper
   before_action :authenticate!, only: [:profile]
   before_action :current_user
+  require 'matrix'
 
   def new
     @employee = current_user
@@ -12,14 +13,17 @@ class OrdersController < ApplicationController
     @meals = Item.where(category: 'meals')
     @desserts = Item.where(category: 'desserts')
     @orderlist = Order.where(:party_id => @party.id)
-    # @total = total(@orderlist)
+    @total = total(@orderlist)
   end
 
-  # def total(orderlist)
-  #   orderlist.each do |lineitem|
-  #     @item = lineitem.item_id
-  #   end
-  # end
+  def total(orderlist)
+    *quantities = orderlist.map{ |x| x[:quantity] }
+    item_ids = orderlist.map{ |x| x[:item_id] }
+    index = Item.find(item_ids)
+    *prices = index.map{|item| item[:price]}
+    tally = (0...prices.count).inject(0) {|r, i| r + prices[i]*quantites[i]}
+    tally.sum
+  end
 
   def create
     @party = Party.find params[:id]
