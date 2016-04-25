@@ -12,7 +12,14 @@ class OrdersController < ApplicationController
     @meals = Item.where(category: 'meals')
     @desserts = Item.where(category: 'desserts')
     @orderlist = Order.where(:party_id => @party.id)
+    # @total = total(@orderlist)
   end
+
+  # def total(orderlist)
+  #   orderlist.each do |lineitem|
+  #     @item = lineitem.item_id
+  #   end
+  # end
 
   def create
     @party = Party.find params[:id]

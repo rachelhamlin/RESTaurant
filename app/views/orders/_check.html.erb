@@ -1,14 +1,10 @@
 <div class='tally'>
 
   <% @orderlist.each do |lineitem| %>
+    <% @array = Array.new %>
     <%= lineitem.item.name %> (<%= lineitem.quantity %> at $<%= lineitem.item.price %>)<br>
   <% end %>
-  <% @orderlist.each do |lineitem| %>
-    <% @n = 0 %>
-    <% lineitem.item.price * lineitem.quantity %>
-    <% @n += lineitem.item.price %>
-  <% end %>
-  Total: $<%= @n %>
+  <%= @total %>
   <br>
 </div>
 

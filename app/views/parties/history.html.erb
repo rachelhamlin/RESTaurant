@@ -10,12 +10,14 @@
   <div class='six columns offset-by-three'>
     <div class='menu'>
 
+      <p>Past Parties</p>
+        <li>
+          <% @paidparties.each do |party| %>
 
-      <% @paidparties.each do |party| %>
+          <ul>Table <%= party.table_number %>, party of <%= party.number_of_people %></ul>
 
-        <p>Table <%= party.table_number %>, party of <%= party.number_of_people %></p>
-
-      <% end %>
+          <% end %>
+        </li>
 
   </div>
 </div>

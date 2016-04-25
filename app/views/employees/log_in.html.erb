@@ -1,15 +1,32 @@
-<h2>Sign in</h2>
+<%= stylesheet_link_tag   'loggedin', media: 'all' %>
 
-<%= form_tag '/sessions', method: :post do %>
+<header class='navbar'>
+  <div id="restaurant">Taqueria</div>
+  <div id="employee"><%= link_to "Home", profile_path %></div>
+</header><br>
 
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <br>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <br>
-  <%= submit_tag "Sign in" %>
+<div class='content'>
 
-<% end %>
+  <div class='six columns offset-by-three'>
+    <div class='menu items-page'>
 
-<%= button_to "Create Account", new_employee_path, {method: 'get'} %>
+      <h2>Sign in</h2>
+
+      <%= form_tag '/sessions', method: :post do %>
+
+        <%= label_tag :username %>
+        <%= text_field_tag :username %>
+        <br>
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+        <br>
+        <%= submit_tag "Sign in" %>
+
+      <% end %>
+
+      <%= button_to "Create Account", new_employee_path, {method: 'get'} %>
+
+    </div>
+  </div>
+
+</div>
