@@ -24,7 +24,8 @@ class PartiesController < ApplicationController
 
   def create
     table_number = params[:party][:table_number].to_i
-    if( Party.where(:table_number => table_number).length > 0)
+    # debugger
+    if( Party.where(:table_number => table_number, :is_paid => false).length > 0)
       @error = "Someone is already seated there!"
       redirect_to new_party_path
     else
