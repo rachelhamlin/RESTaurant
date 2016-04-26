@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     user = Employee.find_by username: username
 
-    if user && user.authenticate( password )
+    if user && user.authenticate(password)
       session[:employee_id] = user.id
       redirect_to profile_path
     else
