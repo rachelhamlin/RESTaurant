@@ -16,13 +16,20 @@
     <div class='menu'>
 
       <h5>Employees</h5>
-      <br>
+      <table>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Location</th>
       <% @employees.each do |person| %>
-        <%= person.name %>, <% if person.is_admin %><%= 'Manager' %><% else %><%= 'Server' %><% end %> at
-        <%= person.restaurant_location.split(/ |\_/).map(&:capitalize).join(" ") %>
+          <tr>
+            <td><%= person.name %></td>
+            <td><% if person.is_admin %><%= 'Manager' %><% else %><%= 'Server' %><% end %></td>
+            <td><%= person.restaurant_location.split(/ |\_/).map(&:capitalize).join(" ") %></td>
+          </tr>
         <br>
       <% end %>
       <br>
+    </table>
       <%= button_to "Back", profile_path, {method: 'get'} %>
     </div>
   </div>
