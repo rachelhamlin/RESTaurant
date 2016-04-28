@@ -23,11 +23,11 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.create item_params
-    redirect_to '/admin'
+    redirect_to items_path
   end
 
   def edit
-    @employee = current_user    
+    @employee = current_user
     @item = Item.find params[:id]
   end
 
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find params[:id]
     item.destroy
-    redirect_to admin_path
+    redirect_to items_path
   end
 
   private

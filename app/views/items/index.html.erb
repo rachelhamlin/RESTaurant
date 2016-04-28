@@ -30,7 +30,7 @@
         <%= link_to dessert[:name], item_path(dessert) %>, $<%= dessert.price %><br>
       <% end %><br>
 
-    <%= button_to "Add New Item", new_item_path %>
+    <%= button_to "Add New Item", new_item_path, {method: 'get'} %>
     <%= button_to "Back", profile_path, {method: 'get'} %>
   </div>
 
