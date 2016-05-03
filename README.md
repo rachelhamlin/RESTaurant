@@ -19,4 +19,4 @@ Built with Ruby on Rails. This app is a custom table management system for emplo
 * If the employee switches between parties, they can return to another party's order wherever they left off
 
 ### ERD
-![ERD] (/Users/rhamlin/RESTaurant_app/ERD.jpg)
+![ERD] (https://github.com/rachelhamlin/RESTaurant/blob/master/ERD.jpg)
