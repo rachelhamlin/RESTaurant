@@ -19,4 +19,4 @@ Built with Ruby on Rails. This app is a custom table management system for emplo
 * If the employee switches between parties, they can return to another party's order wherever they left off
 
 ### ERD
-![ERD](https://www.dropbox.com/s/ntbv75936z3kvx1/ERD.pdf?dl=0)
+![ERD](https://www.dropbox.com/s/h79l0lhw3blx0ma/ERD.jpg?dl=0)
