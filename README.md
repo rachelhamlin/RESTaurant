@@ -17,3 +17,6 @@ Built with Ruby on Rails. This app is a custom table management system for emplo
 * An order begins with 'drinks'
 * When the drink order is submitted, the employee moves to meals, desserts, etc.
 * If the employee switches between parties, they can return to another party's order wherever they left off
+
+### ERD
+![ERD](https://www.dropbox.com/s/ntbv75936z3kvx1/ERD.pdf?dl=0)
